@@ -75,24 +75,23 @@ h1 {
   line-height: 1.6;
 }
 
-.subtitle {
-  text-align: center;
-  color: #9ca3af;
-  letter-spacing: 0.3em;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
-.filters {
+.view-toggle {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 10px;
   margin-bottom: 32px;
   flex-wrap: wrap;
 }
 
-.filters button {
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+button {
   background: rgba(168, 85, 247, 0.07);
   border: 1px solid rgba(168, 85, 247, 0.35);
   color: #c4b5fd;
@@ -104,8 +103,8 @@ h1 {
   transition: all 0.25s;
 }
 
-.filters button:hover,
-.filters button.active {
+button:hover,
+button.active {
   background: rgba(168, 85, 247, 0.25);
   border-color: #a855f7;
   color: #fff;
@@ -114,9 +113,51 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, ninmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 4px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(168,85,247,0.4);
+}
+
+.timeline-card {
+  margin-left: 40px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(168,85,247,0.25);
+  padding: 16px;
+  border-radius: 14px;
+  position: relative;
+  cursor: normal;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  left: -34px; /* Adjusted to center over the line */
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  filter: drop-shadow(0 0 5px white);
+  box-shadow: 0 0 8px #fff;
 }
 
 .card {
@@ -138,19 +179,50 @@ h1 {
     0 0 0 1px rgba(168, 85, 247, 0.15) inset;
 }
  
-.card h3 {
+.card h3,
+.timeline-card h3 {
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 8px;
   color: #f3f4f6;
 }
  
-.card p {
+.card p,
+.timeline-card p {
   font-size: 0.82rem;
   color: #9ca3af;
   line-height: 1.55;
   margin-bottom: 12px;
 }
+
+a {
+  color: #c4b5fd;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #c4b5fd;
+}
+
+a:hover {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #a855f7;
+}
+
+a:focus {
+  outline: 1px solid #a855f7;
+  outline-offset: 2px;
+}
+
+a:hover {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
 
 .extra {
   max-height: 0;
@@ -195,4 +267,8 @@ h1 {
   font-size: 0.7rem;
   margin-top: 60px;
   letter-spacing: 0.1em;
+}
+
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
 }

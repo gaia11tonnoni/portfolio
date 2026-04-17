@@ -22,8 +22,13 @@
       </p>
     </section>
 
+    <div class="view-toggle">
+      <button onclick="setView('grid', this)" class="active">Grid</button>
+      <button onclick="setView('timeline', this)">Timeline</button>
+    </div>
+
     <div class="filters">
-      <button onclick="filterProjects('All', this)">All</button>
+      <button onclick="filterProjects('All', this)" class="active">All</button>
       <button onclick="filterProjects('Web Apps', this)">Web Apps</button>
       <button onclick="filterProjects('AI', this)">AI</button>
       <button onclick="filterProjects('Games', this)">Games</button>
