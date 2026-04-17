@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galaxy Portfolio</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,16 +13,17 @@
   <div class="overlay"></div>
 
   <main>
-    <h1>My Galaxy Portfolio</h1>
+    <h1>My Portfolio</h1>
 
     <div class="filters">
-      <button onclick="filterProjects('All')">All</button>
-      <button onclick="filterProjects('Web Apps')">Web Apps</button>
-      <button onclick="filterProjects('AI')">AI</button>
-      <button onclick="filterProjects('Games')">Games</button>
+      <button onclick="filterProjects('All', this)">All</button>
+      <button onclick="filterProjects('Web Apps', this)">Web Apps</button>
+      <button onclick="filterProjects('AI', this)">AI</button>
+      <button onclick="filterProjects('Games', this)">Games</button>
     </div>
 
     <section id="grid" class="grid"></section>
+    <p class="star-count" id="scount"></p>
   </main>
 
   <script src="script.js"></script>
