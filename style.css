@@ -57,6 +57,24 @@ h1 {
   background-clip: text;
 }
 
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.intro-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #c4b5fd;
+  margin-bottom: 8px;
+}
+
+.intro-text {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .subtitle {
   text-align: center;
   color: #9ca3af;
@@ -107,8 +125,9 @@ h1 {
   border-radius: 18px;
   padding: 20px;
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  cursor: default;
+  cursor: pointer;
   backdrop-filter: blur(8px);
+  overflow: hidden;
 }
  
 .card:hover {
@@ -131,6 +150,19 @@ h1 {
   color: #9ca3af;
   line-height: 1.55;
   margin-bottom: 12px;
+}
+
+.extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: #c4b5fd;
+  font-size: 0.8rem;
+}
+
+.card.expanded .extra {
+  max-height: 200px;
+  margin-top: 10px;
 }
  
 .stack {

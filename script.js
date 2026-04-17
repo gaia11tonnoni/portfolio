@@ -3,19 +3,22 @@ const projects = [
     title: "Hamster Mood Bot",
     category: "AI",
     description: "An AI chatbot that replies with hamster reaction memes and speaks like a teenager. Uses Ollama + Python + JSON + Hamster sticker logic.",
-    stack: ["Ollama", "Python", "JSON", "Hamster Sticker"]
+    stack: ["Ollama", "Python", "JSON", "Hamster Sticker"],
+    details: "It reacts differently based on mood detection and uses meme images as responses."
   },
   {
     title: "Pixel Art Maker",
     category: "Web Apps",
     description: "A web-based pixel art editor where you can draw pixel art and export it as PNG.",
-    stack: ["JavaScript", "HTML", "CSS"]
+    stack: ["JavaScript", "HTML", "CSS"],
+    details: "Includes grid resizing and export functionality."
   },
   {
     title: "AO3 Skin Theme",
     category: "Web Apps",
     description: "A custom CSS skin for AO3 to change the site's appearance.",
-    stack: ["CSS"]
+    stack: ["CSS"],
+    details: "Overrides layout and improves readability with a dark purple theme."
   }
 ];
 
@@ -37,7 +40,13 @@ function renderProjects() {
       <p>${p.description}</p>
       <p style="color:#a855f7; font-size:12px;">${p.stack.join(" • ")}</p>
       <span>${p.category}</span>
+      <div class="extra">${p.details || ""}</div>
     `;
+
+    card.addEventListener("click", () => {
+      card.classList.toggle("expanded");
+    });
+
     grid.appendChild(card);
   });
 }
