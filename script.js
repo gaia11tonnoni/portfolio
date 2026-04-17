@@ -2,6 +2,7 @@ const projects = [
   {
     title: "Hamster AI Chat – Emotion-Driven Conversational Interface",
     category: "AI",
+    difficulty: "Advanced",
     started: "15/04/2026",
     github: "https://github.com/gaia11tonnoni/Hamster-Chatbot",
     description: "Hamster AI Chat is a Streamlit-based conversational AI system using a local LLM via Ollama. It generates structured JSON responses combining text and emotional states mapped to animated GIF stickers for expressive interaction.",
@@ -16,6 +17,7 @@ Error handling for model response failures.`
   {
     title: "PixelForge – Web-Based Pixel Art Editor",
     category: "Web Apps",
+    difficulty: "Avarage",
     started: "16/04/2026",
     github: "https://github.com/gaia11tonnoni/Pixel-Art-Maker",
     description: "A browser-based pixel art tool built with vanilla JavaScript and HTML5 Canvas, allowing users to create, edit, and export pixel art with multiple tools and grid controls.",
@@ -30,6 +32,7 @@ Mobile and touch support.`
   {
     title: "Neon Archive – Custom AO3 Dark Theme Skin",
     category: "Web Apps",
+    difficulty: "Easy",
     started: "14/04/2026",
     github: "https://github.com/gaia11tonnoni/AO3siteSkinPurple",
     description: "A neon-inspired CSS theme that redesigns Archive of Our Own (AO3) with a dark mode interface, improved readability, and consistent purple-magenta styling.",
@@ -44,12 +47,42 @@ Layout refinements for better structure.`
 
 let currentFilter = "All";
 let viewMode = "grid";
+let isSortingDifficulty = false;
+
+const difficultyWeight = {
+  "Advanced": 3,
+  "Average": 2,
+  "Easy": 1
+};
+
+function toggleDifficultySort(btn) {
+  isSortingDifficulty = !isSortingDifficulty;
+  
+  if (isSortingDifficulty) {
+    btn.classList.add('active');
+    btn.innerText = "Sorted: Difficulty";
+  } else {
+    btn.classList.remove('active');
+    btn.innerText = "Sort: Hardest First";
+  }
+  renderProjects();
+}
 
 function setView(mode, btn) {
   viewMode = mode;
   
   document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+
+  const diffBtn = document.getElementById('sort-diff');
+  if (mode === 'timeline') {
+    diffBtn.style.display = 'none';
+    isSortingDifficulty = false;
+    diffBtn.classList.remove('active');
+    diffBtn.innerText = "Sort: Hardest First";
+  } else {
+    diffBtn.style.display = 'block';
+  }
   
   renderProjects();
 }
@@ -75,10 +108,14 @@ function renderProjects() {
   grid.innerHTML = "";
 
   let data = currentFilter === "All"
-    ? projects
+    ? [...projects]
     : projects.filter(p => p.category === currentFilter);
 
-  data = sortByDate(data);
+  if (isSortingDifficulty && viewMode === "grid") {
+    data.sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]);
+  } else {
+    data = sortByDate(data);
+  }
 
   if (viewMode === "timeline") {
     grid.className = "timeline";
@@ -88,7 +125,10 @@ function renderProjects() {
       el.className = "timeline-card";
 
       el.innerHTML = `
-        <h3>${p.title}</h3>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <h3>${p.title}</h3>
+          <span style="font-size:9px; border:1px solid rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px; color:#fff;">${p.difficulty}</span>
+        </div>
         <p>${p.description}</p>
         <p style="color:#a855f7; font-size:11px; text-transform:uppercase;">Started: ${p.started}</p>
         <p style="color:#c4b5fd; font-size:11px;"><a href="${p.github}" target="_blank">GitHub</a></p>
@@ -113,7 +153,10 @@ function renderProjects() {
     card.className = "card";
 
     card.innerHTML = `
-      <h3>${p.title}</h3>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <h3>${p.title}</h3>
+        <span style="font-size:9px; border:1px solid rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px; color:#fff;">${p.difficulty}</span>
+      </div>
       <p>${p.description}</p>
       <p style="color:#a855f7; font-size:12px;">${p.stack.join(" • ")}</p>
       <p style="color:#6b7280; font-size:11px;">Started: ${p.started}</p>

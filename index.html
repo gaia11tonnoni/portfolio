@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
+  <title>Darmstadt Projects</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -13,18 +13,25 @@
   <div class="overlay"></div>
 
   <main>
-    <h1>My Portfolio</h1>
+    <h1>My Projects from Darmstadt</h1>
 
     <section class="intro">
-      <p class="intro-title">About me</p>
+      <div class="identity-badge">About Me</div>
       <p class="intro-text">
-        something
+        Hey! I’m a <b>Digital Science student</b> currently building my way through the world. 
+        One of my favorite highlights so far was my <b>Erasmus+ month in Darmstadt</b> (April 13 – May 12, 2026). 
+        I spent that time working at Entega (count+care), 
+        which was a total deep-dive into international teamwork. 
+        <br><br>
+        The code I pushed during those weeks represents a huge growth spurt for me, 
+        both as a developer and a person.
       </p>
     </section>
 
     <div class="view-toggle">
-      <button onclick="setView('grid', this)" class="active">Grid</button>
-      <button onclick="setView('timeline', this)">Timeline</button>
+      <button id="sort-diff" onclick="toggleDifficultySort(this)" style="margin-right: auto;">Sort: Hardest First</button>
+      <button onclick="setView('grid', this)" class="active">⊞</button>
+      <button onclick="setView('timeline', this)">🗓️</button>
     </div>
 
     <div class="filters">
