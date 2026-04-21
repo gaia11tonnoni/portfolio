@@ -16,8 +16,8 @@ Error handling for model response failures.`
   },
   {
     title: "PixelForge – Web-Based Pixel Art Editor",
-    category: "Web Apps",
-    difficulty: "Avarage",
+    category: "Apps",
+    difficulty: "Intermediate",
     started: "16/04/2026",
     github: "https://github.com/gaia11tonnoni/Pixel-Art-Maker",
     description: "A browser-based pixel art tool built with vanilla JavaScript and HTML5 Canvas, allowing users to create, edit, and export pixel art with multiple tools and grid controls.",
@@ -31,7 +31,7 @@ Mobile and touch support.`
   },
   {
     title: "Neon Archive – Custom AO3 Dark Theme Skin",
-    category: "Web Apps",
+    category: "Apps",
     difficulty: "Easy",
     started: "14/04/2026",
     github: "https://github.com/gaia11tonnoni/AO3siteSkinPurple",
@@ -42,6 +42,22 @@ Improved contrast and readability.
 Custom styling for navigation, forms, and metadata.
 Glow and shadow effects across interface.
 Layout refinements for better structure.`
+  },
+  {
+    title: "Notes – Terminal-Based Notes Manager",
+    category: "Apps",
+    difficulty: "Upper-intermediate",
+    started: "20/04/2026",
+    github: "https://github.com/gaia11tonnoni/Notes-Terminal-App.git",
+    description: "A terminal-based note-taking application built in Go, designed for fast, distraction-free writing directly in the command line with persistent local storage and a keyboard-driven interface.",
+  stack: ["Go", "Bubble Tea", "Lip Gloss", "SQLite", "Bubbles", "CGO"],
+  details: `Create, edit, and delete notes in the terminal.
+Fully keyboard-driven navigation and interaction.
+Persistent storage using SQLite.
+Multi-view workflow (list, title edit, body edit).
+State management using Bubble Tea (Elm architecture).
+Responsive terminal UI with adaptive layout.
+Minimal styling via Lip Gloss for structured CLI design.`
   }
 ];
 
@@ -50,8 +66,9 @@ let viewMode = "grid";
 let isSortingDifficulty = false;
 
 const difficultyWeight = {
-  "Advanced": 3,
-  "Average": 2,
+  "Advanced": 4,
+  "Upper-intermediate": 3,
+  "Intermediate": 2,
   "Easy": 1
 };
 
