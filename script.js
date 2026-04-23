@@ -48,7 +48,7 @@ Layout refinements for better structure.`
     category: "Apps",
     difficulty: "Upper-intermediate",
     started: "20/04/2026",
-    github: "https://github.com/gaia11tonnoni/Notes-Terminal-App.git",
+    github: "https://github.com/gaia11tonnoni/Notes-Terminal-App",
     description: "A terminal-based note-taking application built in Go, designed for fast, distraction-free writing directly in the command line with persistent local storage and a keyboard-driven interface.",
   stack: ["Go", "Bubble Tea", "Lip Gloss", "SQLite", "Bubbles", "CGO"],
   details: `Create, edit, and delete notes in the terminal.
@@ -58,7 +58,23 @@ Multi-view workflow (list, title edit, body edit).
 State management using Bubble Tea (Elm architecture).
 Responsive terminal UI with adaptive layout.
 Minimal styling via Lip Gloss for structured CLI design.`
-  }
+  },
+  {
+  title: "GestureFlow – Real-Time Hand Gesture Recognition System",
+  category: "Tools",
+  difficulty: "Advanced",
+  started: "22/04/2026",
+  github: "https://github.com/gaia11tonnoni/Hand-Gesture-Recognition",
+  description: "GestureFlow is a real-time hand gesture recognition system using MediaPipe Hands for landmark detection and a RandomForest classifier for gesture prediction. It enables low-latency recognition of common hand gestures through webcam input.",
+  stack: ["Python", "OpenCV", "MediaPipe", "scikit-learn", "NumPy", "joblib"],
+  details: `Real-time hand tracking using MediaPipe Hands.
+Landmark-based gesture recognition pipeline.
+Custom dataset collection tool for training.
+Supports 6 gesture classes (OPEN_HAND, FIST, POINTING, PEACE, THUMBS_UP, OK).
+Real-time prediction via webcam input.
+Lightweight RandomForest inference.
+Fully offline system with no cloud dependency.`
+}
 ];
 
 let currentFilter = "All";
