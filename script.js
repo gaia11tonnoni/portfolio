@@ -21,7 +21,7 @@ Error handling for model response failures.`
     started: "16/04/2026",
     github: "https://github.com/gaia11tonnoni/Pixel-Art-Maker",
     description: "A browser-based pixel art tool built with vanilla JavaScript and HTML5 Canvas, allowing users to create, edit, and export pixel art with multiple tools and grid controls.",
-    stack: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
+    stack: ["HTML", "CSS", "JavaScript", "Canvas API"],
     details: `Pixel canvas with pen, eraser, and flood fill tools.
 Grid resizing (16x16, 32x32, 64x64).
 Zoom functionality for precision editing.
@@ -36,7 +36,7 @@ Mobile and touch support.`
     started: "14/04/2026",
     github: "https://github.com/gaia11tonnoni/AO3siteSkinPurple",
     description: "A neon-inspired CSS theme that redesigns Archive of Our Own (AO3) with a dark mode interface, improved readability, and consistent purple-magenta styling.",
-    stack: ["CSS3", "AO3 Skin System", "UI Design"],
+    stack: ["CSS", "AO3 Skin System", "UI Design"],
     details: `Full UI redesign with neon purple aesthetic.
 Improved contrast and readability.
 Custom styling for navigation, forms, and metadata.
@@ -74,6 +74,24 @@ Supports 6 gesture classes (OPEN_HAND, FIST, POINTING, PEACE, THUMBS_UP, OK).
 Real-time prediction via webcam input.
 Lightweight RandomForest inference.
 Fully offline system with no cloud dependency.`
+},
+{
+  title: "Warbound – Pixel-Style Card Game Engine & Web Simulation",
+  category: "Game Engine",
+  difficulty: "Intermediate",
+  started: "04/05/2026",
+  github: "YOUR_GITHUB_LINK_HERE",
+
+  description: "Warbound is a browser-based two-player card game engine simulating the classic War ruleset. It features object-oriented architecture, recursive conflict resolution, and a pixel-style UI built for web interaction.",
+  stack: ["JavaScript", "HTML", "CSS", "OOP Design"],
+  details: `Fully functional War card game engine.
+Object-oriented design (Card, Deck, Player classes).
+Deck shuffling and distribution system.
+Turn-based comparison logic.
+Recursive war resolution system for tie cases.
+Card transfer and collection mechanics.
+Win condition detection (single-player domination).
+Pixel-art inspired UI styling.`
 }
 ];
 
@@ -129,11 +147,17 @@ function filterProjects(category, btn) {
   renderProjects();
 }
 
+function parseDMY(dateStr) {
+  const [day, month, year] = dateStr.split("/").map(Number);
+  return new Date(year, month - 1, day);
+}
+
 function sortByDate(arr) {
-  return arr.sort((a, b) => 
-    new Date(b.started.split("/").reverse().join("-")) -
-    new Date(a.started.split("/").reverse().join("-"))
-  );
+  return arr.sort((a, b) => {
+    const dateA = parseDMY(a.started);
+    const dateB = parseDMY(b.started);
+    return dateB - dateA;
+  });
 }
 
 function renderProjects() {
