@@ -77,10 +77,10 @@ Fully offline system with no cloud dependency.`
 },
 {
   title: "Warbound – Pixel-Style Card Game Engine & Web Simulation",
-  category: "Game Engine",
+  category: "App",
   difficulty: "Intermediate",
   started: "04/05/2026",
-  github: "YOUR_GITHUB_LINK_HERE",
+  github: "https://github.com/gaia11tonnoni/Warbound",
 
   description: "Warbound is a browser-based two-player card game engine simulating the classic War ruleset. It features object-oriented architecture, recursive conflict resolution, and a pixel-style UI built for web interaction.",
   stack: ["JavaScript", "HTML", "CSS", "OOP Design"],
