@@ -92,6 +92,23 @@ Recursive war resolution system for tie cases.
 Card transfer and collection mechanics.
 Win condition detection (single-player domination).
 Pixel-art inspired UI styling.`
+},
+{
+  title: "MiniSolitaire",
+  category: "App",
+  difficulty: "Intermediate",
+  started: "11/05/2026",
+  github: "https://github.com/gaia11tonnoni/Mini-Solitaire",
+
+  description: "MiniSolitaire is a browser-based solitaire-style game engine using a 40-card deck. It focuses on structured card mechanics, controlled randomness, and modular object-oriented design.",
+  stack: ["JavaScript", "HTML", "CSS", "OOP Design"],
+  details: `Fully functional 40-card solitaire-style engine.
+Object-oriented design (Card, Deck classes).
+Deck shuffling and randomized distribution.
+Structured card stacks for game state management.
+Simplified solitaire ruleset for faster gameplay.
+Array-based card handling system.
+Modular architecture for future rule expansion.`
 }
 ];
 
